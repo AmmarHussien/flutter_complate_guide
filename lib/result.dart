@@ -4,9 +4,11 @@ class Results extends StatelessWidget {
   const Results({
     super.key,
     required this.resutlScore,
+    required this.resetHandler,
   });
 
   final int resutlScore;
+  final Function resetHandler;
 
   String get resultPhrase {
     String resultText;
@@ -25,14 +27,25 @@ class Results extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        resultPhrase,
-        style: const TextStyle(
-          fontSize: 36,
-          fontWeight: FontWeight.bold,
+    return Column(
+      children: [
+        Center(
+          child: Text(
+            resultPhrase,
+            style: const TextStyle(
+              fontSize: 36,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
+          ),
         ),
-      ),
+        ElevatedButton(
+          child: const Text('Restart Quiz'),
+          onPressed: () {
+            resetHandler();
+          },
+        ),
+      ],
     );
   }
 }

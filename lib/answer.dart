@@ -15,7 +15,7 @@ class Answer extends StatelessWidget {
     return SizedBox(
       width: 200,
       child: ElevatedButton(
-        onPressed: selectHandler(),
+        onPressed: () => selectHandler(),
         child: Text(answerText),
       ),
     );
